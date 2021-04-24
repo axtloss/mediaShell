@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=mediaShell
+Comment=A shell specifically made for media
+Exec=mediaShell
+Terminal=true
+Type=Application
+Encoding=UTF-8
+Icon=mediaShell
+Categories=System;TerminalEmulator;media
+Keywords=media;shell

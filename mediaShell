@@ -1,0 +1,46 @@
+#!/bin/bash
+
+echo "mediaShell version 1.0" && read input
+
+if [[ $input == "mpd"* ]];
+then
+	command=$(echo $input | sed 's/mpd //g')
+	mpd $command
+elif [[ $input == "quit"* ]]
+then
+	exit
+elif [[ $input == "youtube_video"* ]]
+then
+	command=$(echo $input | sed 's/youtube_video //g')
+	ytfzf $command
+elif [[ $input == "youtube"* ]]
+then
+	command=$(echo $input | sed 's/youtube //g')
+	ytfzf -m $command
+elif [[ $input == "paplay"* ]];
+then
+	command=$(echo $input | sed 's/paplay //g')
+	paplay $command
+elif [[ $input == "exit"* ]]
+then
+	exit
+elif [[ $input == "help"* ]]
+then
+	echo "mediaShell version 1.0"
+	if [[ $input == *"mpd"* ]];
+	then
+		mpd --help
+	elif [[ $input == *"playerctl"* ]]
+	then
+		playerctl --help
+	else
+		echo "to view help, type help (programm)"
+		echo "programms are:"
+		echo "playerctl"
+		echo "mpd"
+	fi
+else
+	playerctl $input
+fi
+
+./mediaShell.sh
